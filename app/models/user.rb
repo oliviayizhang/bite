@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
+  has_many :memberships
+  has_many :groups, through: :memberships
+
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :username, presence: true

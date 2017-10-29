@@ -1,8 +1,11 @@
-import React from 'react';
+import React from 'react'
+import MainContainer from './containers/MainContainer'
 
 const App = props => {
   return(
-    <h1>Hello from App.js</h1>
+    <div>
+      <MainContainer />
+    </div>
   )
 }
 
