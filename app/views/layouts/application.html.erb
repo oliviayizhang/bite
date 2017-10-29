@@ -4,8 +4,8 @@
     <title>Bite Up</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
@@ -20,7 +20,7 @@
           <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
           <%= link_to 'Profile', current_user %>
         <% else %>
-          <%= link_to 'Sign Up', new_user_registration_path %>
+          <%= link_to 'Register', new_user_registration_path %>
           <%= link_to 'Log In', new_user_session_path %>
         <% end %>
       </ul>
