@@ -19,6 +19,7 @@
       <ul>
         <% if user_signed_in? %>
           <%= link_to 'Profile', current_user %>
+          <%= link_to 'Create a group', "/groups/new" %>
           <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
         <% else %>
           <%= link_to 'Register', new_user_registration_path %>
