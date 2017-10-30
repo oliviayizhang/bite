@@ -19,6 +19,11 @@
   margin: 0;
 }
 
+.main-header a {
+  text-decoration: none;
+  color: black;
+}
+
 nav ul a{
   /*border: 1px solid red;*/
   text-decoration: none;

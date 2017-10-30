@@ -22,14 +22,20 @@ class GroupDetail extends React.Component {
     })
     return(
       <div className="wrapper">
-        
+
         <div className="group-title">
           <h3>{this.props.groupname}</h3>
         </div>
 
         <div className="events-list">
           {events}
+          
+          <div className="event-button">
+            <button>Today I want to go...</button>
+          </div>
         </div>
+
+
       </div>
     )
   }
