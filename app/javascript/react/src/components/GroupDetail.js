@@ -31,7 +31,7 @@ class GroupDetail extends React.Component {
           {events}
 
           <div className="event-button">
-            <button onClick={}>Today I want to go...</button>
+            <button>Today I want to go...</button>
           </div>
 
         </div>
