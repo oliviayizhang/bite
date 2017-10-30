@@ -3,11 +3,13 @@ class User < ApplicationRecord
 
   has_many :memberships
   has_many :groups, through: :memberships
+  has_many :rsvps
+  has_many :events, through: :rsvps
 
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :username, presence: true
-  validates :email, presence: true
+  validates :username, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true
 
   validates_integrity_of  :avatar
   validates_processing_of :avatar
