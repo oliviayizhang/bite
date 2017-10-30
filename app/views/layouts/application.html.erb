@@ -6,19 +6,20 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <%= stylesheet_link_tag "normalize" %>
   </head>
 
   <body>
 
-    <div>
-      <h1>Bite Up</h1>
+    <div class="main-header">
+      <h1>EAT UP</h1>
     </div>
 
     <nav>
       <ul>
         <% if user_signed_in? %>
-          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
           <%= link_to 'Profile', current_user %>
+          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
         <% else %>
           <%= link_to 'Register', new_user_registration_path %>
           <%= link_to 'Log In', new_user_session_path %>
@@ -26,9 +27,14 @@
       </ul>
     </nav>
 
-    <% flash.each do |key, value| %>
-      <%= value %>
-    <% end %>
+      <% if flash %>
+        <% flash.each do |key, value| %>
+          <div class="success-error-messege">
+            <p><%= value %></p>
+          </div>
+        <% end %>
+      <% end %>
+
 
     <%= yield %>
   </body>

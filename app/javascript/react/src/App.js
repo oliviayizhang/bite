@@ -1,10 +1,18 @@
 import React from 'react'
+import { Route, IndexRoute, Router, browserHistory} from 'react-router'
 import MainContainer from './containers/MainContainer'
+import GroupTile from './components/GroupTile'
+
 
 const App = props => {
   return(
     <div>
-      <MainContainer />
+      <Router history={browserHistory}>
+        <Route path='/'>
+          <IndexRoute component={MainContainer} />
+          <Route path='/groups/:id' component={GroupTile}/>
+        </Route>
+      </Router>
     </div>
   )
 }

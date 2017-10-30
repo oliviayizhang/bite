@@ -1,39 +1,93 @@
 import React from 'react'
-import GroupTile from '../components/GroupTile'
+import GroupShowContainer from './GroupShowContainer'
+import EventsIndexContainer from './EventsIndexContainer'
 
 class MainContainer extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      groups: []
+      groups: [],
+      current_user: null,
+      events: []
     }
-    //bind
+    this.fetchGroups = this.fetchGroups.bind(this)
+    this.fetchEvents = this.fetchEvents.bind(this)
   }
 
   componentDidMount() {
-    fetch('api/v1/groups')
+    fetch('api/v1/users.json', {
+      credentials: 'same-origin',
+      method: "GET",
+      headers: { 'Content-Type': 'application/json' }
+    })
     .then(response => response.json())
-    .then(body => {
-      console.log(body)
-      this.setState( { groups: body.groups })
+    .then(data => {
+      this.setState ({current_user: data.user})
+    })
+    .then(this.fetchGroups())
+    .then(this.fetchEvents())
+  }
+
+  fetchGroups() {
+    fetch('api/v1/groups', {
+      credentials: 'same-origin',
+      method: "GET",
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(response => response.json())
+    .then(data => {
+      this.setState({groups: data.groups})
+    })
+  }
+
+  fetchEvents() {
+    fetch('api/v1/events', {
+      credentials: 'same-origin',
+      method: "GET",
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(response => response.json())
+    .then(data => {
+      this.setState({events: data.events})
     })
   }
 
   render() {
-    console.log(this.state.groups)
     let groups = this.state.groups.map((group) => {
       return (
-        <GroupTile
+        <GroupShowContainer
           key={group.id}
           id={group.id}
           name={group.name}
         />
       )
     })
+
+    let events = this.state.events.map((event) => {
+      return(
+        <EventsIndexContainer
+          key={event.id}
+          id={event.id}
+          location={event.location}
+          meal_type={event.meal_type}
+          time={event.time}
+        />
+      )
+    })
+
     return(
-      <div>
-        <h3>Your Groups:</h3>
-        {groups}
+      <div className="wrapper">
+
+        <div className="groups-index">
+          <h3>Your Groups:</h3>
+          {groups}
+        </div>
+
+        <div className="events-index">
+          <h3>What's happening today...</h3>
+          {events}
+        </div>
+
       </div>
     )
   }
