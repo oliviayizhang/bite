@@ -1,5 +1,5 @@
 user_1 = User.create(
-  id: 2,
+  id: 1,
   first_name: "Little",
   last_name: "Sheep",
   username: "littlesheep",
@@ -8,7 +8,7 @@ user_1 = User.create(
 )
 
 user_2 = User.create(
-  id: 3,
+  id: 2,
   first_name: "Ash",
   last_name: "Arney",
   username: "asharney",
@@ -17,7 +17,7 @@ user_2 = User.create(
 )
 
 user_3 = User.create(
-  id: 4,
+  id: 3,
   first_name: "Super",
   last_name: "Trans",
   username: "supertrans",
@@ -25,16 +25,43 @@ user_3 = User.create(
   password: 1234567
 )
 
+user_4 = User.create(
+  id: 4,
+  first_name: "John",
+  last_name: "Smith",
+  username: "johnsmith",
+  email: "john@smith.com",
+  password: 1234567
+)
+
+user_5 = User.create(
+  id: 5,
+  first_name: "Doctor",
+  last_name: "Who",
+  username: "doctorwho",
+  email: "doctor@who.com",
+  password: 1234567
+)
+
+user_6 = User.create(
+  id: 6,
+  first_name: "Doctor",
+  last_name: "Who",
+  username: "doctorwho",
+  email: "doctor@who.com",
+  password: 1234567
+)
+
 group_1 = Group.create(
-  name: "Super Man"
+  name: "Boston Yoga Group"
 )
 
 group_2 = Group.create(
-  name: "Donald Duck"
+  name: "Northeastern 2013"
 )
 
 group_3 = Group.create(
-  name: "Burger King"
+  name: "Launch Academy 18"
 )
 
 membership_1 = Membership.create(
@@ -44,12 +71,12 @@ membership_1 = Membership.create(
 
 membership_2 = Membership.create(
   user: user_2,
-  group: group_3
+  group: group_1
 )
 
 membership_3 = Membership.create(
   user: user_3,
-  group: group_3
+  group: group_1
 )
 
 membership_4 = Membership.create(
@@ -102,5 +129,5 @@ rsvp_3 = Rsvp.create(
 
 rsvp_4 = Rsvp.create(
   user: user_3,
-  event: event_1
+  event: event_2
 )

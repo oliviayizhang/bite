@@ -1,5 +1,5 @@
 import React from 'react'
-import GroupShowContainer from './GroupShowContainer'
+import GroupIndexContainer from './GroupIndexContainer'
 import EventsIndexContainer from './EventsIndexContainer'
 
 class MainContainer extends React.Component {
@@ -48,14 +48,16 @@ class MainContainer extends React.Component {
     })
     .then(response => response.json())
     .then(data => {
-      this.setState({events: data.events})
+      console.log(data);
+      this.setState({events: data})
     })
   }
 
   render() {
+    console.log(this.state.events);
     let groups = this.state.groups.map((group) => {
       return (
-        <GroupShowContainer
+        <GroupIndexContainer
           key={group.id}
           id={group.id}
           name={group.name}
@@ -71,6 +73,7 @@ class MainContainer extends React.Component {
           location={event.location}
           meal_type={event.meal_type}
           time={event.time}
+          group={event.group}
         />
       )
     })

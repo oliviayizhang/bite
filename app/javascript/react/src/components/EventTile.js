@@ -1,12 +1,11 @@
 import React from 'react'
+import EventFormContainer from '../containers/EventFormContainer'
 
-class EventDetail extends React.Component {
+class EventTile extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-
     }
-    //bind
   }
 
   render() {
@@ -19,4 +18,4 @@ class EventDetail extends React.Component {
   }
 }
 
-export default EventDetail
+export default EventTile

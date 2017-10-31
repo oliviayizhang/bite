@@ -29,7 +29,6 @@ class EventFormContainer extends React.Component {
       group_id: this.props.groupId
     }
     this.props.addNewEvent(formPayLoad)
-    // window.location.href=`/groups/${this.props.groupId}`
   }
 
   render() {
