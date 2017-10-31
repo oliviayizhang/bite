@@ -1,11 +1,16 @@
-.group-title h3 {
-  font-weight: 600;
+.group-title {
+  /*border: 1px solid red;*/
+  margin-left: 30px;
+}
+
+.group-title li {
+  /*border: 1px solid red;*/
+  font-size: 1.1em;
+  margin:20px;
+  list-style-type: none;
 }
 
 .events-list {
   /*border: 1px solid green;*/
-}
-
-form {
-  /*border: 1px solid red;*/
+  margin-left: 30px;
 }

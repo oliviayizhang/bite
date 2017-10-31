@@ -48,7 +48,8 @@ class MainContainer extends React.Component {
     })
     .then(response => response.json())
     .then(data => {
-      this.setState({events: data.events})
+      console.log(data);
+      this.setState({events: data})
     })
   }
 
@@ -72,7 +73,7 @@ class MainContainer extends React.Component {
           location={event.location}
           meal_type={event.meal_type}
           time={event.time}
-          group={event.group_id}
+          group={event.group}
         />
       )
     })

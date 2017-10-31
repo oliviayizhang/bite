@@ -6,9 +6,10 @@ class Api::V1::GroupsController < ApplicationController
 
   def show
     group = Group.find(params[:id])
+    users = group.users
     events = group.events
 
-    render json: {group: group, events: events}
+    render json: {group: group, events: events, users: users}
   end
 
   def create

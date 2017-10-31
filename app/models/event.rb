@@ -6,4 +6,8 @@ class Event < ApplicationRecord
   validates :location, presence: true
   validates :meal_type, presence: true
   validates :time, presence: true
+
+  def as_json(options = {})
+    super(methods: :group)
+  end
 end

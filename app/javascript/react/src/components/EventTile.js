@@ -13,8 +13,6 @@ class EventTile extends React.Component {
       <div>
         <h3>{this.props.location}</h3>
         {this.props.meal_type} at {this.props.time}
-
-
       </div>
     )
   }

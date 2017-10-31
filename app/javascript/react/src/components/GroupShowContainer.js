@@ -9,7 +9,8 @@ class GroupShowContainer extends React.Component {
     this.state = {
       group: {},
       events: [],
-      current_user: null
+      current_user: null,
+      group_users: []
     }
     //bind
     this.fetchGroupAndEvents = this.fetchGroupAndEvents.bind(this)
@@ -34,7 +35,7 @@ class GroupShowContainer extends React.Component {
     })
     .then(response => response.json())
     .then(data => {
-      this.setState({ group: data.group, events: data.events})
+      this.setState({ group: data.group, events: data.events, group_users: data.users})
     })
   }
 
@@ -52,12 +53,13 @@ class GroupShowContainer extends React.Component {
   }
 
   render() {
+    console.log(this.state.group_users);
     let grouptile;
     let eventtile
     if (this.state.current_user) {
       grouptile = <GroupTile
                       group={this.state.group}
-                      user={this.state.group.users}
+                      group_users={this.state.group_users}
                    />
       eventtile = this.state.events.map((event) => {
         return <EventTile
@@ -72,19 +74,17 @@ class GroupShowContainer extends React.Component {
     return(
       <div className="wrapper">
 
-        <div className="group-title">
           {grouptile}
-        </div>
 
-        <div className="events-list">
-          {eventtile}
+          <div className="events-list">
+            {eventtile}
 
-          <h4>Today I want to go..</h4>
-          <EventFormContainer
-            groupId={this.state.group.id}
-            addNewEvent={this.addNewEvent}
-          />
-        </div>
+            <h4>Today I want to go..</h4>
+            <EventFormContainer
+              groupId={this.state.group.id}
+              addNewEvent={this.addNewEvent}
+            />
+          </div>
 
       </div>
     )

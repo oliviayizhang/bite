@@ -16,7 +16,8 @@
   /*border: 1px solid green;*/
   text-align: center;
   font-weight: 600;
-  margin: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .main-header a {
@@ -35,6 +36,7 @@ nav {
   /*border: 1px solid green;*/
   display: inline;
   float: right;
+  margin-top: 10px;
 }
 
 .success-error-messege {
@@ -54,9 +56,10 @@ nav {
 
 .groups-index {
   padding: 1em;
+  margin-left: 30px;
   /*border: 1px solid green;*/
+  background-color: rgba(0,0,0,0.1)
 }
-
 
 .groups-index a{
   /*border: 1px solid red;*/
@@ -69,4 +72,12 @@ nav {
 .events-index {
   padding: 1em;
   /*border: 1px solid red;*/
+  margin-left: 30px;
+  background-color: white;
+}
+
+.events-index div{
+  /*border: 1px solid green;*/
+  margin-bottom: 20px;
+
 }
