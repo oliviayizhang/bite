@@ -54,8 +54,19 @@ nav {
 
 .groups-index {
   padding: 1em;
+  /*border: 1px solid green;*/
+}
+
+
+.groups-index a{
+  /*border: 1px solid red;*/
+  text-decoration: none;
+  color: black;
+  display: inline-block;
+  padding: 15px;
 }
 
 .events-index {
   padding: 1em;
+  /*border: 1px solid red;*/
 }

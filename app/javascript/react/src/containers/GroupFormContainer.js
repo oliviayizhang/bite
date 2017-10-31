@@ -59,7 +59,6 @@ class GroupFormContainer extends React.Component {
   }
 
   render() {
-    console.log(this.state.current_user);
     return(
       <form onSubmit={this.handleSubmit}>
         <h3>Create a new group here:</h3>

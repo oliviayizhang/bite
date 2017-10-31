@@ -11,7 +11,7 @@ class EventsIndexContainer extends React.Component {
   render() {
     return(
       <div>
-        {this.props.location} - {this.props.meal_type}
+        {this.props.location} - {this.props.meal_type} - {this.props.group}
       </div>
     )
   }

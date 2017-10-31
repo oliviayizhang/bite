@@ -1,6 +1,6 @@
 import React from 'react'
 
-class GroupShowContainer extends React.Component {
+class GroupIndexContainer extends React.Component {
   constructor(props) {
     super(props)
     this.state ={
@@ -17,4 +17,4 @@ class GroupShowContainer extends React.Component {
   }
 }
 
-export default GroupShowContainer
+export default GroupIndexContainer
