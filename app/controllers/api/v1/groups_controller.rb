@@ -16,7 +16,7 @@ class Api::V1::GroupsController < ApplicationController
     group = Group.new(body)
     membership = Membership.create(user: current_user, group: group)
     if group.save
-      render json: { group: group}
+      render json: { group: group }
     end
   end
 end

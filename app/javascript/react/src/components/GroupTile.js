@@ -39,7 +39,7 @@ class GroupTile extends React.Component {
     let groupdetail;
     if (this.state.current_user) {
       groupdetail = <GroupDetail
-                      groupname={this.state.group.name}
+                      group={this.state.group}
                       events={this.state.events}
                    />
     }
