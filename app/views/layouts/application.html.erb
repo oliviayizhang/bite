@@ -3,7 +3,8 @@
   <head>
     <title>Bite Up</title>
     <%= csrf_meta_tags %>
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= stylesheet_link_tag "normalize" %>
@@ -11,22 +12,33 @@
 
   <body>
 
-    <div class="main-header">
-      <a href='/'><h1>EAT UP</h1></a>
-    </div>
+    <header>
+        <a href='/'><h1 id="logo">EAT UP</h1></a>
 
-    <nav>
-      <ul>
-        <% if user_signed_in? %>
-          <%= link_to 'Profile', current_user %>
-          <%= link_to 'Create a group', "/groups/new" %>
-          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-        <% else %>
-          <%= link_to 'Register', new_user_registration_path %>
-          <%= link_to 'Log In', new_user_session_path %>
-        <% end %>
-      </ul>
-    </nav>
+      <nav id="nav-bar">
+
+          <% if user_signed_in? %>
+            <%= link_to 'Profile', current_user, :class => "text-nav" %>
+            <%= link_to current_user, :class => "material-icons" do %>
+              <i class="material-icons">account_box</i>
+            <% end %>
+
+            <%= link_to 'Create a group', "/groups/new", :class => "text-nav" %>
+            <%= link_to "/groups/new", :class => "material-icons" do %>
+              <i class="material-icons">add_circle_outline</i>
+            <% end %>
+
+            <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, :class => "text-nav" %>
+            <%= link_to destroy_user_session_path, method: :delete, :class => "material-icons" do %>
+              <i class="material-icons">block</i>
+            <% end %>
+          <% else %>
+            <%= link_to 'Register', new_user_registration_path, :class => "text-nav styled-nav" %>
+            <%= link_to 'Log In', new_user_session_path, :class => "text-nav" %>
+          <% end %>
+
+      </nav>
+    </header>
 
       <% if flash %>
         <% flash.each do |key, value| %>
