@@ -9,6 +9,10 @@ class Event < ApplicationRecord
   validates :time, presence: true
   validates :user, presence: true
 
+  def self.for_groups_of(user)
+    where("group_id IN (?)", user.memberships.select(:group_id))
+  end
+
   def as_json(options = {})
     super(methods: :group)
   end

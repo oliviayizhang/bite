@@ -53,7 +53,6 @@ class GroupShowContainer extends React.Component {
   }
 
   render() {
-    console.log(this.state.group_users);
     let grouptile;
     let eventtile
     if (this.state.current_user) {
@@ -67,7 +66,6 @@ class GroupShowContainer extends React.Component {
                   location={event.location}
                   meal_type={event.meal_type}
                   time={event.time}
-                  addNewEvent={this.addNewEvent}
                />
       })
     }
@@ -82,6 +80,7 @@ class GroupShowContainer extends React.Component {
             <h4>Today I want to go..</h4>
             <EventFormContainer
               groupId={this.state.group.id}
+              userId={this.state.current_user}
               addNewEvent={this.addNewEvent}
             />
           </div>

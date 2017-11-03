@@ -15,8 +15,6 @@ class User < ApplicationRecord
   validates_processing_of :avatar
 
 
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 

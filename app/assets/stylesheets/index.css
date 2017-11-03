@@ -117,15 +117,50 @@ nav a{
 .events-index {
   padding: 1em;
   /*border: 1px solid red;*/
-  box-shadow: 0px 2px 2px 0px rgba( 0, 0, 0, 0.1 );
   margin-left: 30px;
-  background-color: white;
 }
 
 .events-index div{
   /*border: 1px solid green;*/
+  background-color: white;
+  box-shadow: 0px 2px 2px 0px rgba( 0, 0, 0, 0.1 );
   margin-bottom: 20px;
+  padding: 1em;
+}
 
+.profile-wrapper {
+  /*border: 1px solid red;*/
+  width: 50%;
+  margin: 10% auto;
+  text-align: center;
+}
+
+.profile-pic img{
+  border-radius: 50%;
+  border: 3px solid white;
+}
+
+.profile-info {
+  border: 1px solid red;
+  text-align: center;
+}
+
+.profile-info p {
+  color: #414547;
+}
+
+.profile-info span {
+  background-color: rgba(65, 69, 71, 0.2);
+  padding: 10px 30px;
+  display: inline-block;
+}
+
+.profile-button a{
+  text-decoration: none;
+  font-size: 20px;
+  /*border: 1px solid blue;*/
+  margin: 0.5em;
+  padding: 1em;
 }
 
 @media only screen and (max-width: 850px ) {
