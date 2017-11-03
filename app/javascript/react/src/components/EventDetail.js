@@ -41,5 +41,4 @@ class EventDetail extends React.Component {
   }
 }
 
-
 export default EventDetail
