@@ -1,13 +1,21 @@
-<%= link_to 'Edit Profile', edit_user_registration_path %> <br />
 
-Name: <%= @user.first_name %> <%= @user.last_name %> <br />
-Username: <%= @user.username %> <br />
-Email: <%= @user.email %> <br />
+<div class="profile-wrapper">
+  
+  <div class="profile-pic">
+    <%= image_tag(@user.avatar.medium) %>
+  </div>
 
-<p>Profile Picture:</p>
+  <ul class="profile-info">
+    <p>Name:</p>
+    <span><%= @user.first_name %> <%= @user.last_name %></span>
+    <p>Username:</p>
+    <span><%= @user.username %></span>
+    <p>Email: </p>
+    <span><%= @user.email %></span>
+  </ul>
 
-<%= image_tag(@user.avatar.medium) %>
-
-<br />
-
-<%= link_to 'Back', root_path %>
+  <div class="profile-button">
+    <%= link_to 'Edit Profile', edit_user_registration_path %>
+    <%= link_to 'Back', root_path %>
+  </div>
+</div>

@@ -26,7 +26,8 @@ class EventFormContainer extends React.Component {
       location: this.state.location,
       meal_type: this.state.meal_type,
       time: this.state.time,
-      group_id: this.props.groupId
+      group_id: this.props.groupId,
+      user_id: this.props.userId.id
     }
     this.props.addNewEvent(formPayLoad)
   }

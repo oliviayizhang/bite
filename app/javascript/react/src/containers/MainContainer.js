@@ -8,10 +8,13 @@ class MainContainer extends React.Component {
     this.state = {
       groups: [],
       current_user: null,
-      events: []
+      events: [],
+      rsvps: []
     }
     this.fetchGroups = this.fetchGroups.bind(this)
     this.fetchEvents = this.fetchEvents.bind(this)
+    this.addRsvp = this.addRsvp.bind(this)
+    this.fetchRsvps = this.fetchRsvps.bind(this)
   }
 
   componentDidMount() {
@@ -23,13 +26,14 @@ class MainContainer extends React.Component {
     .then(response => response.json())
     .then(data => {
       this.setState ({current_user: data.user})
+      this.fetchGroups()
+      this.fetchEvents()
+      this.fetchRsvps()
     })
-    .then(this.fetchGroups())
-    .then(this.fetchEvents())
   }
 
   fetchGroups() {
-    fetch('api/v1/groups', {
+    fetch('/api/v1/groups', {
       credentials: 'same-origin',
       method: "GET",
       headers: { 'Content-Type': 'application/json' }
@@ -41,20 +45,39 @@ class MainContainer extends React.Component {
   }
 
   fetchEvents() {
-    fetch('api/v1/events', {
+    fetch('/api/v1/events', {
       credentials: 'same-origin',
       method: "GET",
       headers: { 'Content-Type': 'application/json' }
     })
     .then(response => response.json())
     .then(data => {
-      console.log(data);
       this.setState({events: data})
     })
   }
 
+  fetchRsvps() {
+    fetch('/api/v1/rsvps', {
+      credentials: 'same-origin',
+      method: "GET",
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(response => response.json())
+    .then(data => {
+      this.setState({rsvps: data.rsvps})
+    })
+  }
+
+  addRsvp(formPayLoad) {
+    fetch('/api/v1/rsvps', {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json'},
+      body: JSON.stringify(formPayLoad)
+    })
+  }
+
   render() {
-    console.log(this.state.events);
     let groups = this.state.groups.map((group) => {
       return (
         <GroupIndexContainer
@@ -65,15 +88,21 @@ class MainContainer extends React.Component {
       )
     })
 
+    let rsvp_ids = this.state.rsvps.map(rsvp => rsvp.event_id)
     let events = this.state.events.map((event) => {
       return(
         <EventsIndexContainer
           key={event.id}
           id={event.id}
+          rsvp={rsvp_ids.some(rsvp_id => rsvp_id == event.id) ? true : false}
           location={event.location}
           meal_type={event.meal_type}
           time={event.time}
           group={event.group}
+          current_user={this.state.current_user}
+          user={event.user}
+          addRsvp={this.addRsvp}
+          handleSelect={() => this.handleSelect(event.id)}
         />
       )
     })
