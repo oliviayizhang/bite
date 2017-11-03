@@ -27,8 +27,8 @@ class MainContainer extends React.Component {
     .then(data => {
       this.setState ({current_user: data.user})
       this.fetchGroups()
-      this.fetchEvents()
-      this.fetchRsvps()
+
+
     })
   }
 
@@ -41,6 +41,7 @@ class MainContainer extends React.Component {
     .then(response => response.json())
     .then(data => {
       this.setState({groups: data.groups})
+      this.fetchEvents()
     })
   }
 
@@ -53,6 +54,7 @@ class MainContainer extends React.Component {
     .then(response => response.json())
     .then(data => {
       this.setState({events: data})
+      this.fetchRsvps()
     })
   }
 
