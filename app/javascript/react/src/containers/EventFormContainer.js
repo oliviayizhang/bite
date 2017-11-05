@@ -1,5 +1,8 @@
 import React from 'react'
 import EventInputField from '../components/EventInputField'
+import SearchForm from './SearchForm'
+import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete'
+import GeosuggestForm from './GeosuggestForm'
 
 class EventFormContainer extends React.Component {
   constructor(props) {
@@ -9,7 +12,6 @@ class EventFormContainer extends React.Component {
       meal_type: '',
       time: ''
     }
-    //bind
     this.handleInputChange = this.handleInputChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -33,14 +35,20 @@ class EventFormContainer extends React.Component {
   }
 
   render() {
+    const inputProps = {
+      value: this.state.location,
+      onChange: this.handleInputChange,
+    }
+
     return(
       <form onSubmit={this.handleSubmit}>
-        <EventInputField
+        {/* <EventInputField
           label='Where:'
           name='location'
           value={this.state.location}
           handleInputChange={this.handleInputChange}
-        />
+        /> */}
+        <GeosuggestForm/>
         <br />
         <EventInputField
           label='For:'

@@ -9,6 +9,8 @@
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-geosuggest": "^2.5.0",
+    "react-places-autocomplete": "^5.4.3",
     "react-router": "3.2.0"
   },
   "devDependencies": {

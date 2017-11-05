@@ -15,6 +15,7 @@ class MainContainer extends React.Component {
     this.fetchEvents = this.fetchEvents.bind(this)
     this.addRsvp = this.addRsvp.bind(this)
     this.fetchRsvps = this.fetchRsvps.bind(this)
+    this.handleRsvpDelete = this.handleRsvpDelete.bind(this)
   }
 
   componentDidMount() {
@@ -27,8 +28,6 @@ class MainContainer extends React.Component {
     .then(data => {
       this.setState ({current_user: data.user})
       this.fetchGroups()
-
-
     })
   }
 
@@ -77,6 +76,21 @@ class MainContainer extends React.Component {
       headers: { 'Accept': 'application/json', 'Content-Type': 'application/json'},
       body: JSON.stringify(formPayLoad)
     })
+    .then(response => {
+      return response.json()
+    })
+    .then(data => {
+      this.setState({rsvps: data.rsvps})
+    })
+  }
+
+  handleRsvpDelete(id) {
+    fetch(`/api/v1/rsvps/${id}`, {
+      method: 'DELETE'})
+    .then(response => response.json())
+    .then(data => {
+      this.setState({rsvps: data.rsvps})
+    })
   }
 
   render() {
@@ -104,7 +118,7 @@ class MainContainer extends React.Component {
           current_user={this.state.current_user}
           user={event.user}
           addRsvp={this.addRsvp}
-          handleSelect={() => this.handleSelect(event.id)}
+          handleRsvpDelete={this.handleRsvpDelete}
         />
       )
     })

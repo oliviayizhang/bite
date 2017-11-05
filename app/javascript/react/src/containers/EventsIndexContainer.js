@@ -4,16 +4,15 @@ class EventsIndexContainer extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      active: props.rsvp
+      // active: props.rsvp
     }
-    this.toggleButton = this.toggleButton.bind(this)
     this.handleRsvpSubmit = this.handleRsvpSubmit.bind(this)
-    this.handleRsvpDelete = this.handleRsvpDelete.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
   }
 
-  toggleButton() {
-    this.setState({active: !this.state.active})
-  }
+  // toggleButton() {
+  //   this.setState({active: !this.state.active})
+  // }
 
   handleRsvpSubmit() {
     let formPayLoad = {
@@ -23,24 +22,18 @@ class EventsIndexContainer extends React.Component {
     this.props.addRsvp(formPayLoad)
   }
 
-  handleRsvpDelete() {
-    fetch(`/api/v1/rsvps/${this.props.id}`, {
-      method: 'DELETE'}
-    )
+  handleDelete(id) {
+    this.props.handleRsvpDelete(id)
   }
 
   render() {
-    console.log(this.state.active);
+    console.log(this.props.rsvp);
     let button
-    let joinButton =  <button onClick={() => (
-      this.toggleButton(),
-      this.handleRsvpSubmit()
-    )}>Join</button>
+    let joinButton =  <button onClick={() => (this.handleRsvpSubmit())}>Join</button>
 
-    let leaveButton =
-      <button onClick={() => (this.toggleButton(), this.handleRsvpDelete)}>Leave</button>
+    let leaveButton = <button onClick={() => (this.handleDelete())}>Leave</button>
 
-    button = this.state.active? leaveButton : joinButton
+    button = this.props.rsvp? leaveButton : joinButton
 
     return(
       <a href={`/events/${this.props.id}`}>

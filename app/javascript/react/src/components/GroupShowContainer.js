@@ -12,7 +12,6 @@ class GroupShowContainer extends React.Component {
       current_user: null,
       group_users: []
     }
-    //bind
     this.fetchGroupAndEvents = this.fetchGroupAndEvents.bind(this)
     this.addNewEvent = this.addNewEvent.bind(this)
   }
@@ -84,7 +83,6 @@ class GroupShowContainer extends React.Component {
               addNewEvent={this.addNewEvent}
             />
           </div>
-
       </div>
     )
   }
