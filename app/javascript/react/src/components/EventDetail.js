@@ -30,7 +30,7 @@ class EventDetail extends React.Component {
 
     return(
       <div className="event-detail">
-        <h2>{this.state.event.location}</h2>
+        <h2>{this.state.event.name}</h2>
         <p>{this.state.event.meal_type} at {this.state.event.time}</p>
         <ul>
           <h4>These people are going..</h4>

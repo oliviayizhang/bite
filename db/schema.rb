@@ -16,7 +16,8 @@ ActiveRecord::Schema.define(version: 20171101004831) do
   enable_extension "plpgsql"
 
   create_table "events", force: :cascade do |t|
-    t.string "location", null: false
+    t.string "name", null: false
+    t.string "address", null: false
     t.string "meal_type", null: false
     t.string "time", null: false
     t.bigint "group_id", null: false

@@ -8,9 +8,9 @@ class App extends React.Component {
    */
   render() {
     var fixtures = [
-      {label: 'Old Elbe Tunnel, Hamburg', location: {lat: 53.5459, lng: 9.966576}},
-      {label: 'Reeperbahn, Hamburg', location: {lat: 53.5495629, lng: 9.9625838}},
-      {label: 'Alster, Hamburg', location: {lat: 53.5610398, lng: 10.0259135}}
+      {label: 'Old Elbe Tunnel, Hamburg', name: {lat: 53.5459, lng: 9.966576}},
+      {label: 'Reeperbahn, Hamburg', name: {lat: 53.5495629, lng: 9.9625838}},
+      {label: 'Alster, Hamburg', name: {lat: 53.5610398, lng: 10.0259135}}
     ];
 
     return (
@@ -21,7 +21,7 @@ class App extends React.Component {
           initialValue="Hamburg"
           fixtures={fixtures}
           onSuggestSelect={this.onSuggestSelect}
-          location={new google.maps.LatLng(53.558572, 9.9278215)}
+          name={new google.maps.LatLng(53.558572, 9.9278215)}
           radius="20" />
 
         {* Buttons to trigger exposed component functions *}

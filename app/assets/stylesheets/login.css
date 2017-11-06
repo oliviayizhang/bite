@@ -1,0 +1,81 @@
+.profile-wrapper {
+  /*border: 1px solid red;*/
+  background-color: white;
+  width: 50%;
+  margin: 10% auto;
+  text-align: center;
+  padding: 1em;
+  border-radius: 4px;
+}
+
+.field {
+  position: relative;
+}
+
+.field input{
+  height: 2.5em;
+  width: 30em;
+  margin-top: 1.4em;
+  text-indent: 40px;
+}
+
+#log-in-icons {
+  display: inline;
+  position: absolute;
+  top: 32px;
+  left: 100px;
+  color: grey;
+}
+
+.remember-me-label {
+  /*border: 1px solid green;*/
+  margin-left: 0;
+  padding-bottom: 1em;
+}
+
+input.remember-me-box {
+  display: inline-block;
+  width: 2em;
+  margin-left: -22em;
+}
+
+.log-in-button {
+  -webkit-border-radius: 4;
+  -moz-border-radius: 4;
+  border-radius: 4px;
+  color: #ffffff;
+  background: #ff6663;
+  padding: 10px 20px 10px 20px;
+  font-size: 20px;
+  width: 24em;
+}
+
+.log-in-button:hover {
+  background: #bd4c4c;
+  text-decoration: none;
+}
+
+.shared-links a{
+  /*border: 1px solid red;*/
+  display: inline-block;
+  padding: 0.8em 2em;
+  text-decoration: underline;
+  color: black;
+}
+
+.field label {
+  /*border: 1px solid green;*/
+  margin-top: 1em;
+  display: inline-block;
+}
+
+#user_avatar {
+  border: 1px solid red;
+}
+
+.sign-up-back-button {
+  text-decoration: underline;
+  color: black;
+  display: inline-block;
+  padding: 0.8em 2em;
+}

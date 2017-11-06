@@ -38,7 +38,7 @@ class EventsIndexContainer extends React.Component {
     return(
       <a href={`/events/${this.props.id}`}>
         <div>
-            <h4>{this.props.location} - {this.props.meal_type} at {this.props.time}</h4>
+            <h4>{this.props.name} - {this.props.meal_type} at {this.props.time}</h4>
             <p>{this.props.group.name}</p>
             {button}
 

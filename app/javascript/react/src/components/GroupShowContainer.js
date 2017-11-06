@@ -62,7 +62,7 @@ class GroupShowContainer extends React.Component {
       eventtile = this.state.events.map((event) => {
         return <EventTile
                   key={event.id}
-                  location={event.location}
+                  name={event.name}
                   meal_type={event.meal_type}
                   time={event.time}
                />

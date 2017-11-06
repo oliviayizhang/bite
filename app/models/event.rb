@@ -4,9 +4,12 @@ class Event < ApplicationRecord
   has_many :rsvps
   has_many :users, through: :rsvps
 
-  validates :location, presence: true
+
+  validates :name, presence: true
+  validates :address, presence: true
   validates :meal_type, presence: true
   validates :time, presence: true
+  validates :group, presence: true
   validates :user, presence: true
 
   def self.for_groups_of(user)

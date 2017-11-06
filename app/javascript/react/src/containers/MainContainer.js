@@ -111,7 +111,7 @@ class MainContainer extends React.Component {
           key={event.id}
           id={event.id}
           rsvp={rsvp_ids.some(rsvp_id => rsvp_id == event.id) ? true : false}
-          location={event.location}
+          name={event.name}
           meal_type={event.meal_type}
           time={event.time}
           group={event.group}

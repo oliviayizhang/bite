@@ -13,10 +13,12 @@ class GeosuggestForm extends React.Component {
   onSuggestSelect(suggest) {
     this.setState({address: suggest.gmaps.formatted_address
                   })
+
     console.log(suggest);
-    console.log(google.maps.places.PlaceResult);
   }
+
   render() {
+    console.log(this.state.address);
     let restaurantDetail
     if (this.state.address) {
       restaurantDetail =

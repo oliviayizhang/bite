@@ -1,14 +1,14 @@
 import React from 'react'
 import EventInputField from '../components/EventInputField'
 import SearchForm from './SearchForm'
-import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete'
 import GeosuggestForm from './GeosuggestForm'
 
 class EventFormContainer extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      location: '',
+      name: '',
+      address: '',
       meal_type: '',
       time: ''
     }
@@ -25,7 +25,8 @@ class EventFormContainer extends React.Component {
   handleSubmit(event) {
     event.preventDefault()
     let formPayLoad = {
-      location: this.state.location,
+      name: this.state.name,
+      address: this.state.address,
       meal_type: this.state.meal_type,
       time: this.state.time,
       group_id: this.props.groupId,
@@ -35,21 +36,17 @@ class EventFormContainer extends React.Component {
   }
 
   render() {
-    const inputProps = {
-      value: this.state.location,
-      onChange: this.handleInputChange,
-    }
 
     return(
       <form onSubmit={this.handleSubmit}>
-        {/* <EventInputField
+        <EventInputField
           label='Where:'
-          name='location'
-          value={this.state.location}
+          name='name'
+          value={this.state.name}
           handleInputChange={this.handleInputChange}
-        /> */}
-        <GeosuggestForm/>
+        />
         <br />
+        <GeosuggestForm/>
         <EventInputField
           label='For:'
           name='meal_type'
@@ -66,6 +63,7 @@ class EventFormContainer extends React.Component {
         <br />
         <input type='submit' value='post to the group' />
       </form>
+
     )
   }
 }
