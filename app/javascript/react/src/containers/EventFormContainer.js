@@ -1,6 +1,5 @@
 import React from 'react'
 import EventInputField from '../components/EventInputField'
-import SearchForm from './SearchForm'
 import GeosuggestForm from './GeosuggestForm'
 
 class EventFormContainer extends React.Component {
@@ -39,12 +38,12 @@ class EventFormContainer extends React.Component {
 
     return(
       <form onSubmit={this.handleSubmit}>
-        <EventInputField
+        {/* <EventInputField
           label='Where:'
           name='name'
           value={this.state.name}
           handleInputChange={this.handleInputChange}
-        />
+        /> */}
         <br />
         <GeosuggestForm/>
         <EventInputField

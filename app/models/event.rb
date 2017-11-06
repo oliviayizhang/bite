@@ -17,6 +17,6 @@ class Event < ApplicationRecord
   end
 
   def as_json(options = {})
-    super(methods: :group)
+    super(methods: [:group, :user])
   end
 end

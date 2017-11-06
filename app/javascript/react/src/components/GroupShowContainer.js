@@ -1,7 +1,7 @@
 import React from 'react'
 import GroupTile from './GroupTile'
 import EventTile from './EventTile'
-import EventFormContainer from '../containers/EventFormContainer'
+import GeosuggestForm from '../containers/GeosuggestForm'
 
 class GroupShowContainer extends React.Component {
   constructor(props) {
@@ -77,7 +77,7 @@ class GroupShowContainer extends React.Component {
             {eventtile}
 
             <h4>Today I want to go..</h4>
-            <EventFormContainer
+            <GeosuggestForm
               groupId={this.state.group.id}
               userId={this.state.current_user}
               addNewEvent={this.addNewEvent}

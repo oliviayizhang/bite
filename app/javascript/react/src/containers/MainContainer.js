@@ -112,11 +112,12 @@ class MainContainer extends React.Component {
           id={event.id}
           rsvp={rsvp_ids.some(rsvp_id => rsvp_id == event.id) ? true : false}
           name={event.name}
+          address={event.address}
           meal_type={event.meal_type}
           time={event.time}
           group={event.group}
           current_user={this.state.current_user}
-          user={event.user}
+          creator={event.user}
           addRsvp={this.addRsvp}
           handleRsvpDelete={this.handleRsvpDelete}
         />

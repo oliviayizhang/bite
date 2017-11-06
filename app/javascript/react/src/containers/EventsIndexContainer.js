@@ -27,7 +27,6 @@ class EventsIndexContainer extends React.Component {
   }
 
   render() {
-    console.log(this.props.rsvp);
     let button
     let joinButton =  <button onClick={() => (this.handleRsvpSubmit())}>Join</button>
 
@@ -36,15 +35,16 @@ class EventsIndexContainer extends React.Component {
     button = this.props.rsvp? leaveButton : joinButton
 
     return(
-      <a href={`/events/${this.props.id}`}>
         <div>
-            <h4>{this.props.name} - {this.props.meal_type} at {this.props.time}</h4>
-            <p>{this.props.group.name}</p>
+            {this.props.creator.username} is going to:
+            <a href={`/events/${this.props.id}`}><h4>{this.props.name}</h4></a>
+            {this.props.meal_type} at {this.props.time}
+            <p>- {this.props.group.name}</p>
             {button}
 
             <button>See who is going</button>
         </div>
-      </a>
+
     )
   }
 }
