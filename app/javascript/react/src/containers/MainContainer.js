@@ -1,6 +1,6 @@
 import React from 'react'
 import GroupIndexContainer from './GroupIndexContainer'
-import EventsIndexContainer from './EventsIndexContainer'
+import EventTile from './EventTile'
 
 class MainContainer extends React.Component {
   constructor(props) {
@@ -110,7 +110,7 @@ class MainContainer extends React.Component {
     // let rsvp_ids = this.state.rsvps.map(rsvp => rsvp.event_id)
     let events = this.state.events.map((event) => {
       return(
-        <EventsIndexContainer
+        <EventTile
           key={event.id}
           id={event.id}
           rsvp={this.state.rsvps.find(rsvp => rsvp.event_id == event.id) || null}

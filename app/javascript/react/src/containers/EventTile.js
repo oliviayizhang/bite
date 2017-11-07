@@ -1,6 +1,6 @@
 import React from 'react'
 
-class EventsIndexContainer extends React.Component {
+class EventTile extends React.Component {
   constructor(props) {
     super(props)
     this.handleRsvpSubmit = this.handleRsvpSubmit.bind(this)
@@ -21,9 +21,9 @@ class EventsIndexContainer extends React.Component {
 
   render() {
     let button
-    let joinButton =  <button onClick={() => (this.handleRsvpSubmit())}>Join</button>
+    let joinButton =  <button onClick={() => (this.handleRsvpSubmit())}>I'm going</button>
 
-    let leaveButton = <button onClick={() => (this.handleDelete(this.props.rsvp.id))}>Leave</button>
+    let leaveButton = <button onClick={() => (this.handleDelete(this.props.rsvp.id))}>Change my mind</button>
 
     button = this.props.rsvp ? leaveButton : joinButton
 
@@ -34,12 +34,10 @@ class EventsIndexContainer extends React.Component {
             {this.props.meal_type} at {this.props.time}
             <p>- {this.props.group.name}</p>
             {button}
-
-            <button>See who is going</button>
         </div>
 
     )
   }
 }
 
-export default EventsIndexContainer
+export default EventTile

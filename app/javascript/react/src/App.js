@@ -4,6 +4,7 @@ import MainContainer from './containers/MainContainer'
 import GroupShowContainer from './components/GroupShowContainer'
 import GroupFormContainer from './containers/GroupFormContainer'
 import EventDetail from './components/EventDetail'
+// import EventTile from './containers/EventTile'
 
 const App = props => {
   return(
