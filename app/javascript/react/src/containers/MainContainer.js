@@ -85,8 +85,11 @@ class MainContainer extends React.Component {
   }
 
   handleRsvpDelete(id) {
-    fetch(`/api/v1/rsvps/${id}`, {
-      method: 'DELETE'})
+    fetch(`/api/v1/rsvps/${id}.json`, {
+      method: 'DELETE',
+      credentials: 'same-origin',
+      headers: { 'Content-Type': 'application/json'}
+    })
     .then(response => response.json())
     .then(data => {
       this.setState({rsvps: data.rsvps})
@@ -104,13 +107,13 @@ class MainContainer extends React.Component {
       )
     })
 
-    let rsvp_ids = this.state.rsvps.map(rsvp => rsvp.event_id)
+    // let rsvp_ids = this.state.rsvps.map(rsvp => rsvp.event_id)
     let events = this.state.events.map((event) => {
       return(
         <EventsIndexContainer
           key={event.id}
           id={event.id}
-          rsvp={rsvp_ids.some(rsvp_id => rsvp_id == event.id) ? true : false}
+          rsvp={this.state.rsvps.find(rsvp => rsvp.event_id == event.id) || null}
           name={event.name}
           address={event.address}
           meal_type={event.meal_type}

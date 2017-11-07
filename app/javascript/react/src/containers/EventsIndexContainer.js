@@ -3,16 +3,9 @@ import React from 'react'
 class EventsIndexContainer extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      // active: props.rsvp
-    }
     this.handleRsvpSubmit = this.handleRsvpSubmit.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
   }
-
-  // toggleButton() {
-  //   this.setState({active: !this.state.active})
-  // }
 
   handleRsvpSubmit() {
     let formPayLoad = {
@@ -30,9 +23,9 @@ class EventsIndexContainer extends React.Component {
     let button
     let joinButton =  <button onClick={() => (this.handleRsvpSubmit())}>Join</button>
 
-    let leaveButton = <button onClick={() => (this.handleDelete())}>Leave</button>
+    let leaveButton = <button onClick={() => (this.handleDelete(this.props.rsvp.id))}>Leave</button>
 
-    button = this.props.rsvp? leaveButton : joinButton
+    button = this.props.rsvp ? leaveButton : joinButton
 
     return(
         <div>

@@ -25,3 +25,8 @@
 .event-detail ul {
   list-style-type: none;
 }
+
+#map {
+   width: 500px;
+   height: 300px;
+ }

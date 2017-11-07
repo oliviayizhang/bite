@@ -1,6 +1,7 @@
 import React from 'react'
 import Geosuggest from 'react-geosuggest'
 import EventInputField from '../components/EventInputField'
+/* global google */
 
 class GeosuggestForm extends React.Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class GeosuggestForm extends React.Component {
     this.onSuggestSelect = this.onSuggestSelect.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.getPlaceDetail = this.getPlaceDetail.bind(this)
+    // this.getPlaceDetail = this.getPlaceDetail.bind(this)
     this.initMap = this.initMap.bind(this)
   }
 
@@ -32,32 +33,33 @@ class GeosuggestForm extends React.Component {
       name: suggest.description,
       map: suggest.location
     })
-    this.getPlaceDetail(suggest.placeId)
-    // this.initMap()
+    // this.getPlaceDetail(suggest.placeId)
+    this.initMap(this.state.map)
     console.log(suggest);
-    console.log(this.state.map);
-    // console.log(suggest.location);
-    // console.log(this.state.rating);
   }
 
-  getPlaceDetail(placeId) {
-    fetch(`https://maps.googleapis.com/maps/api/place/details/json?placeid=${placeId}&key=AIzaSyB_V74R4zGTdA3CQh5dOFUGrPDuB5zVEV8`, {
-      credentials: 'same-origin',
-      method: "GET",
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-    .then(response => response.json())
-    .then(data => {
-      this.setState({rating: data.rating})
-    })
-  }
+  // getPlaceDetail(placeId) {
+  //   fetch(`https://maps.googleapis.com/maps/api/place/details/json?placeid=${placeId}&key=AIzaSyB_V74R4zGTdA3CQh5dOFUGrPDuB5zVEV8`, {
+  //     credentials: 'same-origin',
+  //     method: "GET",
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     }
+  //   })
+  //   .then(response => response.json())
+  //   .then(data => {
+  //     this.setState({rating: data.rating})
+  //   })
+  // }
 
-  initMap() {
-    map = new Google.maps.Map(document.getElementById('map'), {
-      center: this.state.map,
-      zoom: 15,
+  initMap(location) {
+    let map = new google.maps.Map(document.getElementById('map'), {
+      center: location,
+      zoom: 18,
+    })
+    let marker = new google.maps.Marker({
+      position: location,
+      map: map
     })
   }
 
@@ -79,7 +81,8 @@ class GeosuggestForm extends React.Component {
     if (this.state.name) {
       restaurantDetail =
       <div>
-        <li>Address: {this.state.address}</li>
+        <p>Address: {this.state.address}</p>
+        <div id="map">Map:</div>
       </div>
     }
 
@@ -97,6 +100,7 @@ class GeosuggestForm extends React.Component {
         {/* <button onClick={()=>this._geoSuggest.selectSuggest()}>Search</button> */}
         {/* <button onClick={()=>this._geoSuggest.clear()}>Clear</button> */}
         {restaurantDetail}
+
         <br />
         <EventInputField
           label='For:'
@@ -116,5 +120,13 @@ class GeosuggestForm extends React.Component {
       </form>
     )
   }
+
+}
+function loadJS(src) {
+  var ref = window.document.getElementsByTagName("script")[0];
+  var script = window.document.createElement("script");
+  script.src = src;
+  script.async = true;
+  ref.parentNode.insertBefore(script, ref);
 }
 export default GeosuggestForm
