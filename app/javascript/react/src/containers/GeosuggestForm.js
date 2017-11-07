@@ -11,8 +11,8 @@ class GeosuggestForm extends React.Component {
       address: '',
       meal_type: '',
       time:'',
-      rating: '',
-      map: {}
+      latitude: null,
+      longitude: null
     }
     this.onSuggestSelect = this.onSuggestSelect.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this)
@@ -31,11 +31,11 @@ class GeosuggestForm extends React.Component {
     this.setState({
       address: suggest.gmaps.formatted_address,
       name: suggest.description,
-      map: suggest.location
+      latitude: suggest.location.lat,
+      longitude: suggest.location.lng
     })
     // this.getPlaceDetail(suggest.placeId)
-    this.initMap(this.state.map)
-    console.log(suggest);
+    this.initMap({ lat: this.state.latitude, lng: this.state.longitude })
   }
 
   // getPlaceDetail(placeId) {
@@ -70,6 +70,8 @@ class GeosuggestForm extends React.Component {
       address: this.state.address,
       meal_type: this.state.meal_type,
       time: this.state.time,
+      latitude: this.state.latitude,
+      longitude: this.state.longitude,
       group_id: this.props.groupId,
       user_id: this.props.userId.id
     }

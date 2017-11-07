@@ -20,6 +20,7 @@ class EventTile extends React.Component {
   }
 
   render() {
+    console.log(this.props.rsvp);
     let button
     let joinButton =  <button onClick={() => (this.handleRsvpSubmit())}>I'm going</button>
 
