@@ -36,7 +36,6 @@ class EventDetail extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     let users = this.state.users.map((user) => {
       return <li key={user.id}>{user.username}</li>
     })

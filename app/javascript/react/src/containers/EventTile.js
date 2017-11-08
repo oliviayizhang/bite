@@ -20,7 +20,6 @@ class EventTile extends React.Component {
   }
 
   render() {
-    console.log(this.props.rsvp);
     let button
     let joinButton =  <button onClick={() => (this.handleRsvpSubmit())}>I'm going</button>
 
@@ -30,7 +29,7 @@ class EventTile extends React.Component {
 
     return(
         <div>
-            {this.props.creator.username} is going to:
+            <p id="events-owner">{this.props.creator.first_name} is going to:</p>
             <a href={`/events/${this.props.id}`}><h4>{this.props.name}</h4></a>
             {this.props.meal_type} at {this.props.time}
             <p>- {this.props.group.name}</p>

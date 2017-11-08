@@ -27,3 +27,6 @@
 
 # Ignore application configuration
 /config/application.yml
+
+# Ignore encrypted secrets key file.
+config/secrets.yml.key

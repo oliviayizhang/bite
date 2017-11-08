@@ -9,10 +9,10 @@ user_1 = User.create!(
 
 user_2 = User.create!(
   id: 2,
-  first_name: "Good",
-  last_name: "Bye",
-  username: "goodbye",
-  email: "good@bye.com",
+  first_name: "Doctor",
+  last_name: "Who",
+  username: "doctorwho",
+  email: "doctor@who.com",
   password: 1234567
 )
 
@@ -44,15 +44,19 @@ user_5 = User.create!(
 )
 
 group_1 = Group.create!(
-  name: "Boston Yoga Group"
+  name: "My Neighborhood"
 )
 
 group_2 = Group.create!(
-  name: "Northeastern 2013"
+  name: "Northeastern"
 )
 
 group_3 = Group.create!(
   name: "Launch Academy 18"
+)
+
+group_4 = Group.create!(
+  name: "Colleagues"
 )
 
 membership_1 = Membership.create!(
@@ -75,40 +79,54 @@ membership_4 = Membership.create!(
   group: group_2
 )
 
+membership_4 = Membership.create!(
+  user: user_1,
+  group: group_3
+)
+
+
 event_1 = Event.create!(
-  name: "Kung Fu Tea Malden",
-  address: "33 Main Street, Malden, MA, 02148",
-  meal_type: "Coffee/Tea",
-  time: "03:30:00",
+  name: "Luke's Lobster",
+  address: "290 Washington St., Boston, MA 02108",
+  meal_type: "Lunch",
+  time: "12:00",
   group: group_3,
-  user: user_1
+  user: user_1,
+  latitude: 42.357389,
+  longitude: -71.058161
 )
 
 event_2 = Event.create!(
-  name: "Mystic Station Melrose",
-  address: "100 main street, Melrose, MA, 02123",
-  meal_type: "Lunch",
-  time: "12:00:00",
+  name: "Kung Fu Tea",
+  address: "334 Massachusetts Ave, Boston, MA 02115",
+  meal_type: "Coffee/Dessert",
+  time: "1:30",
   group: group_2,
-  user: user_2
+  user: user_2,
+  latitude: 42.342594,
+  longitude: -71.084173
 )
 
 event_3 = Event.create!(
-  name: "Sweetgreen Summer Street",
-  address: "52 Washington Street, Boston, MA, 02331",
+  name: "Sweetgreen",
+  address: "13 School St, Boston, MA 02108",
   meal_type: "Lunch",
   time: "11:30:00",
   group: group_1,
-  user: user_1
+  user: user_1,
+  latitude: 42.357628,
+  longitude: -71.058777
 )
 
 event_4 = Event.create!(
-  name: "Chipotle Downtown Crossing",
-  address: "2 Potato Street, Boston, MA, 02458",
+  name: "Chipotle",
+  address: "276 Elm St, Somerville, MA 02144",
   meal_type: "Dinner",
   time: "18:30:00",
   group: group_3,
-  user: user_3
+  user: user_3,
+  latitude: 42.357628,
+  longitude: -71.122571
 )
 
 rsvp_1 = Rsvp.create!(

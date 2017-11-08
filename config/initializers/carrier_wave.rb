@@ -9,7 +9,7 @@ CarrierWave.configure do |config|
       aws_secret_access_key: ENV["aws_access_secret_key"],
       region: 'us-east-2'
   }
-  config.fog_directory  = "bite-up"
+  config.fog_directory  = "eat-up-profile"
   config.fog_public     = false
   config.storage = :fog
 end

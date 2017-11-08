@@ -15,7 +15,7 @@ class User < ApplicationRecord
   validates_processing_of :avatar
 
 
-  devise :database_authenticatable, :registerable,
+  devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
   private
