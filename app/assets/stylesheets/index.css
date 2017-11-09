@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,600|Roboto|Ubuntu:300,400,500,700|Rozha+One');
 
 body {
-  background-color: #f5f7f6;
+  /*background-color: #f5f7f6;*/
   font-family: 'Ubuntu', sans-serif;
   color: #414547;
+  background-color: #FFFFFF;
 }
 
 header {
@@ -33,6 +34,7 @@ header a {
   display: inline;
   text-align: center;
   font-weight: 600;
+  color: white;
   width: 5em;
   margin-left: -2.5em;
   position: absolute;
@@ -40,9 +42,15 @@ header a {
     left: 50%;
 }
 
-.main-header a {
+/*.main-header a {
+  border: 1px solid green;
   text-decoration: none;
-  color: black;
+  color: white;
+}*/
+
+header {
+  /*background-color: #00C3D1;*/
+  background-color: #63DFE8;
 }
 
 nav a{
@@ -65,11 +73,11 @@ nav a{
 }
 
 #nav-profile-pic img{
-  border-radius: 100%;
+  border-radius: 11%;
 }
 
 #nav-bar {
-  padding: 1em 1em;
+  padding: 1.2em 1em;
   /*border: 1px solid green;*/
   position: absolute;
     top: 0;
@@ -135,6 +143,16 @@ nav a{
   font-size: 1.4em;
 }
 
+.events-index button {
+  /*border: 1px solid blue;*/
+  color: black;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 17px;
+  background: #CCF418;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
 #events-group {
   text-align: right;
 }
@@ -154,8 +172,8 @@ nav a{
 }
 
 .profile-pic img{
-  border-radius: 50%;
-  border: 3px solid white;
+  border-radius: 90%;
+  /*border: 3px solid white;*/
 }
 
 .profile-info {

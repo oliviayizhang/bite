@@ -1,6 +1,9 @@
 import React from 'react'
 import Geosuggest from 'react-geosuggest'
 import EventInputField from '../components/EventInputField'
+import DropDownInput from '../components/DropDownInput'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import TimeInput from '../components/TimeInput'
 /* global google */
 
 class GeosuggestForm extends React.Component {
@@ -10,7 +13,7 @@ class GeosuggestForm extends React.Component {
       name: null,
       address: '',
       meal_type: '',
-      time:'',
+      time: null,
       latitude: null,
       longitude: null
     }
@@ -19,6 +22,7 @@ class GeosuggestForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
     // this.getPlaceDetail = this.getPlaceDetail.bind(this)
     this.initMap = this.initMap.bind(this)
+    this.handleChangeTimePicker12 = this.handleChangeTimePicker12.bind(this)
   }
 
   handleInputChange(event) {
@@ -63,6 +67,10 @@ class GeosuggestForm extends React.Component {
     })
   }
 
+  handleChangeTimePicker12 = (event, date) => {
+    this.setState({time: date});
+  }
+
   handleSubmit(event) {
     event.preventDefault()
     let formPayLoad = {
@@ -79,6 +87,7 @@ class GeosuggestForm extends React.Component {
   }
 
   render() {
+    console.log(this.state);
     let restaurantDetail
     if (this.state.name) {
       restaurantDetail =
@@ -104,20 +113,21 @@ class GeosuggestForm extends React.Component {
         {restaurantDetail}
 
         <br />
-        <EventInputField
+        <DropDownInput
           label='For:'
           name='meal_type'
           value={this.state.meal_type}
           handleInputChange={this.handleInputChange}
         />
         <br />
-        <EventInputField
-          label='Time:'
-          name='time'
-          value={this.state.time}
-          handleInputChange={this.handleInputChange}
-        />
-        <br />
+        <MuiThemeProvider>
+          <TimeInput
+            label='Time:'
+            name='time'
+            value={this.state.time}
+            handleChangeTimePicker12={this.handleChangeTimePicker12}
+          />
+        </MuiThemeProvider>
         <input type='submit' value='post to the group' />
       </form>
     )
