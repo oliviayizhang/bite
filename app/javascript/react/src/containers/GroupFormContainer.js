@@ -9,7 +9,6 @@ class GroupFormContainer extends React.Component {
       group: {},
       current_user: null
     }
-    //bind
     this.handleInputChange = this.handleInputChange.bind(this)
     this.addNewGroup = this.addNewGroup.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -60,7 +59,7 @@ class GroupFormContainer extends React.Component {
 
   render() {
     return(
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} className="group-form">
         <h3>Create a new group here:</h3>
         <TextInputField
           label='Group Name:'
@@ -68,7 +67,9 @@ class GroupFormContainer extends React.Component {
           value={this.state.name}
           handleInputChange={this.handleInputChange}
         />
-      <input type='submit' value='create' />
+        <div class="group-form-button">
+          <input type='submit' value='create' />
+        </div>
       </form>
     )
   }

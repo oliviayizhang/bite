@@ -1,0 +1,21 @@
+.group-form  {
+  /*border: 2px solid green;*/
+  margin: 10em 21em 0;
+  text-align: center;
+  width: 50%;
+  background-color: white;
+  padding: 2em;
+}
+
+.group-form-button input{
+  -webkit-border-radius: 4;
+  -moz-border-radius: 4;
+  border-radius: 4px;
+  color: #ffffff;
+  background: #ff6663;
+  padding: 10px 20px 10px 20px;
+  font-size: 20px;
+  width: 24em;
+  margin: 1em;
+  font-family: 'Ubuntu', sans-serif;
+}

@@ -19,6 +19,7 @@ gem 'carrierwave', '1.2.0'
 gem 'mini_magick'
 gem 'fog'
 gem 'figaro'
+gem 'faker'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -31,6 +32,7 @@ group :development, :test do
   gem 'factory_girl'
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
+  gem "dotenv-rails"
 end
 
 group :development do

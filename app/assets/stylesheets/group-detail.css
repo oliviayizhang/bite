@@ -16,10 +16,11 @@
 }
 
 .event-detail {
-  border: 1px solid red;
+  /*border: 1px solid red;*/
   margin: 10em auto;
   width: 60%;
   padding: 1em;
+  background: white;
 }
 
 .event-detail ul {

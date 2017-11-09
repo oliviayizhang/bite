@@ -29,10 +29,10 @@ class EventTile extends React.Component {
 
     return(
         <div>
-            <p id="events-owner">{this.props.creator.first_name} is going to:</p>
+            <p id="events-owner"><strong>{this.props.creator.first_name}</strong> is going to:</p>
             <a href={`/events/${this.props.id}`}><h4>{this.props.name}</h4></a>
             {this.props.meal_type} at {this.props.time}
-            <p>- {this.props.group.name}</p>
+            <p id="events-group"> {this.props.group.name}</p>
             {button}
         </div>
 

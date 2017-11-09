@@ -19,8 +19,10 @@
       <nav id="nav-bar">
 
           <% if user_signed_in? %>
-            <%= link_to 'Profile', current_user, :class => "text-nav", :id => "profile-link" %>
-            <%= link_to 'Invite', new_user_invitation_path, :class => "text-nav" %>
+            <%= link_to current_user, :class => "text-nav", :id => "nav-profile-pic" do %>
+              <%= image_tag(current_user.avatar.thumb) %>
+            <% end %>
+            <!-- <%= link_to 'Invite', new_user_invitation_path, :class => "text-nav" %> -->
             <%= link_to current_user, :class => "material-icons" do %>
               <i class="material-icons">account_box</i>
             <% end %>

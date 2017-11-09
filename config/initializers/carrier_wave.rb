@@ -4,12 +4,12 @@ CarrierWave.configure do |config|
 
   config.fog_provider = 'fog'
   config.fog_credentials = {
-      provider:              'AWS',
+      provider:              "AWS",
       aws_access_key_id:     ENV["aws_access_id"],
       aws_secret_access_key: ENV["aws_access_secret_key"],
       region: 'us-east-2'
   }
-  config.fog_directory  = "eat-up-profile"
+  config.fog_directory  = ENV["s3_bucket"]
   config.fog_public     = false
   config.storage = :fog
 end
