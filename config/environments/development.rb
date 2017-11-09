@@ -34,7 +34,7 @@ Rails.application.configure do
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :smtp
 
-  config.read_encrypted_secrets = true
+  # config.read_encrypted_secrets = true
 
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
