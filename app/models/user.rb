@@ -5,7 +5,6 @@ class User < ApplicationRecord
   has_many :groups, through: :memberships
   has_many :rsvps
   has_many :events, through: :rsvps
-  has_many :messages
 
   validates :first_name, presence: true
   validates :last_name, presence: true

@@ -2,6 +2,8 @@ import React from 'react'
 import GroupTile from './GroupTile'
 import EventTile from '../containers/EventTile'
 import GeosuggestForm from '../containers/GeosuggestForm'
+import ChatMessage from './ChatMessage'
+import TextFieldWithSubmit from './TextFieldWithSubmit'
 
 class GroupShowContainer extends React.Component {
   constructor(props) {
@@ -11,18 +13,26 @@ class GroupShowContainer extends React.Component {
       events: [],
       rsvps: [],
       current_user: null,
-      group_users: []
+      group_users: [],
+      chats:[],
+      message: ''
     }
     this.fetchGroupAndEvents = this.fetchGroupAndEvents.bind(this)
     this.addNewEvent = this.addNewEvent.bind(this)
     this.fetchRsvps = this.fetchRsvps.bind(this)
     this.addRsvp = this.addRsvp.bind(this)
     this.handleRsvpDelete = this.handleRsvpDelete.bind(this)
+    this.handleChatReceipt = this.handleChatReceipt.bind(this)
+    this.handleClearForm = this.handleClearForm.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.handleMessageChange = this.handleMessageChange.bind(this);
   }
 
   componentDidMount() {
-    fetch(`/api/v1/users`, {
-      credentials: 'same-origin'
+    fetch('/api/v1/users.json', {
+      credentials: 'same-origin',
+      method: "GET",
+      headers: { 'Content-Type': 'application/json' }
     })
     .then(response => response.json())
     .then(data => {
@@ -30,12 +40,28 @@ class GroupShowContainer extends React.Component {
       this.fetchGroupAndEvents()
       this.fetchRsvps()
     })
+
+    App.chatChannel = App.cable.subscriptions.create(
+      {
+        channel: "ChatChannel",
+        chat_id: 1
+      },
+      {
+        connected: () => console.log("ChatChannel connected"),
+        disconnected: () => console.log("ChatChannel disconnected"),
+        received: data => {
+          this.handleChatReceipt(data)
+        }
+      }
+    )
   }
 
   fetchGroupAndEvents() {
     let groupId = this.props.params.id
     fetch(`/api/v1/groups/${groupId}`, {
-      credentials: 'same-origin'
+      credentials: 'same-origin',
+      method: "GET",
+      headers: { 'Content-Type': 'application/json' }
     })
     .then(response => response.json())
     .then(data => {
@@ -95,9 +121,38 @@ class GroupShowContainer extends React.Component {
     })
   }
 
+  handleChatReceipt(chat) {
+    this.setState({ chats: this.state.chats.concat(chat) })
+  }
+
+  handleClearForm() {
+  this.setState({ message: '' })
+  }
+
+  handleFormSubmit(event) {
+      event.preventDefault();
+      let prepMessage = this.state.message
+      let user_info = this.state.current_user
+
+      App.chatChannel.send({
+       message: prepMessage,
+      // message: "Hello from cable.",
+       user: user_info
+      })
+
+      this.handleClearForm()
+  }
+
+  handleMessageChange(event) {
+    this.setState({ message: event.target.value })
+  }
+
   render() {
-    let grouptile;
+    console.log(this.state.chats);
+    let grouptile
     let eventtile
+    let chats
+
     if (this.state.current_user) {
       grouptile = <GroupTile
                       group={this.state.group}
@@ -119,21 +174,44 @@ class GroupShowContainer extends React.Component {
           handleRsvpDelete={this.handleRsvpDelete}
           />
       })
+      chats = this.state.chats.map((chat) => {
+        return <ChatMessage
+                  key={chat.key}
+                  message={chat.message}
+                  name={chat.user.first_name}
+                />
+      }, this)
     }
+
     return(
-      <div className="wrapper">
-
+      <div className="group-show-container">
+        <div className="group-show-group-list">
           {grouptile}
+        </div>
 
-          <div className="events-list">
-            {eventtile}
+        <div className="group-show-event-list">
+          {eventtile}
+        </div>
 
-            <GeosuggestForm
-              groupId={this.state.group.id}
-              userId={this.state.current_user}
-              addNewEvent={this.addNewEvent}
-            />
-          </div>
+        <div className="group-show-geo">
+          <GeosuggestForm
+            groupId={this.state.group.id}
+            userId={this.state.current_user}
+            addNewEvent={this.addNewEvent}
+          />
+        </div>
+
+        <div className="chatroom">
+          {chats}
+          <form onSubmit={this.handleFormSubmit}>
+              <TextFieldWithSubmit
+                content={this.state.message}
+                name='message'
+                handlerFunction={this.handleMessageChange}
+              />
+          </form>
+
+        </div>
       </div>
     )
   }
