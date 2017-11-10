@@ -37,17 +37,18 @@ class EventDetail extends React.Component {
 
   render() {
     let users = this.state.users.map((user) => {
-      return <li key={user.id}>{user.first_name}</li>
+      return <li key={user.id}><i className="material-icons material-icons-face">face</i>{user.first_name}</li>
     })
 
     return(
       <div className="event-detail">
         <h2>{this.state.event.name}</h2>
-        <p>{this.state.event.address}</p>
+        <h3 id="event-time">{this.state.event.meal_type} at {this.state.event.time}</h3>
+        <i className="material-icons material-icons-react">location_on</i><p>We'll meet here: {this.state.event.address}</p>
         <div id="map"></div>
-        <p>{this.state.event.meal_type} at {this.state.event.time}</p>
-        <ul>
-          <h4>These people are going..</h4>
+
+        <ul className="rsvps">
+          <h4>Rsvps</h4>
           {users}
         </ul>
       </div>

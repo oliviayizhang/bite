@@ -128,7 +128,6 @@ class GroupShowContainer extends React.Component {
           <div className="events-list">
             {eventtile}
 
-            <h4>Today I want to go..</h4>
             <GeosuggestForm
               groupId={this.state.group.id}
               userId={this.state.current_user}

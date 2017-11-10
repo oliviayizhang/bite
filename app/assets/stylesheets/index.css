@@ -4,7 +4,7 @@ body {
   /*background-color: #f5f7f6;*/
   font-family: 'Ubuntu', sans-serif;
   color: #414547;
-  background-color: #FFFFFF;
+  background-color: #FAFAFA;
 }
 
 header {
@@ -60,10 +60,6 @@ nav a{
 .styled-nav {
   background-color: #CCF418;
   border-radius: 2em;
-}
-
-.material-icons {
-
 }
 
 .text-nav {
@@ -202,10 +198,10 @@ nav a{
 
 @media only screen and (max-width: 640px ) {
   .text-nav { display: none; }
-  .material-icons { padding: 0.2em; }
+  #material-icons-nav { padding: 0.2em; }
   #nav-bar { width: 9em; }
 }
 
 @media only screen and (min-width: 640px ) {
-  .material-icons { display: none}
+  #material-icons-nav { display: none}
 }

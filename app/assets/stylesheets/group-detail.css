@@ -11,16 +11,67 @@
 }
 
 .events-list {
-  /*border: 1px solid green;*/
+  /*border: 1px solid red;*/
   margin-left: 30px;
 }
+
+.events-list button {
+  color: black;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 17px;
+  background: #CCF418;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+#events-owner {
+  font-size: 1.2em;
+}
+
+.events-list div {
+  /*border-left: 1px solid grey;*/
+  /*border: 1px solid green;*/
+  /*padding-left: 1em;*/
+  /*margin: 1em;*/
+  /*background-color: white;*/
+}
+
+.events-list div a {
+  text-decoration: none;
+  color: #414547;
+  font-size: 1.5em;
+}
+
+select {
+  border: 1px solid red;
+  width: 30%;
+  border: 2px solid transparent;
+  box-shadow: 0 0 1px #3d464d;
+  padding: .5em 1em;
+  -webkit-transition: border 0.2s, box-shadow 0.2s;
+          transition: border 0.2s, box-shadow 0.2s;
+}
+
 
 .event-detail {
   /*border: 1px solid red;*/
   margin: 10em auto;
   width: 60%;
   padding: 1em;
-  background: white;
+  background-color: #FFFFF;
+  border-radius: 4px;
+}
+
+.event-detail p {
+  font-size: 1.3em;
+  display: inline-block;
+  padding: 0.8em;
+}
+
+#event-time {
+  background-color: #CCF418;
+  padding: 1em;
+  text-align: center;
 }
 
 .event-detail ul {
@@ -29,5 +80,23 @@
 
 #map {
    width: 500px;
-   height: 300px;
+   height: 400px;
+   margin-left: 10em;
+ }
+
+ .group-show-event-detail {
+   /*border: 1px solid red;*/
+ }
+
+ .material-icons-react {
+   color: #FF6663;
+ }
+
+ .rsvps {
+   /*border: 1px solid red;*/
+   width: 150px;
+   height: 400px;
+   line-height: 1.5em;
+   background-color: white;
+   font-size: 1.2em;
  }

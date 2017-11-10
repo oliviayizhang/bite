@@ -9,7 +9,7 @@ class GroupTile extends React.Component {
 
   render() {
     let users = this.props.group_users.map((group_user) => {
-      return <li key={group_user.id}>{group_user.first_name}</li>
+      return <li key={group_user.id}><i class="material-icons">face</i>   {group_user.first_name}</li>
     })
 
     return(

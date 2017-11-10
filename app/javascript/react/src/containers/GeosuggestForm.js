@@ -87,18 +87,17 @@ class GeosuggestForm extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     let restaurantDetail
     if (this.state.name) {
       restaurantDetail =
       <div>
-        <p>Address: {this.state.address}</p>
-        <div id="map">Map:</div>
+        <p id="geosuggest-address">Address: {this.state.address}</p>
+        <div id="map"></div>
       </div>
     }
 
     return(
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} id="geo-form">
         <Geosuggest
           ref={el=>this._geoSuggest=el}
           placeholder="Where do you want to go today..."
@@ -108,13 +107,12 @@ class GeosuggestForm extends React.Component {
           radius="20"
           country="us"
           />
-        {/* <button onClick={()=>this._geoSuggest.selectSuggest()}>Search</button> */}
-        {/* <button onClick={()=>this._geoSuggest.clear()}>Clear</button> */}
+
         {restaurantDetail}
 
         <br />
         <DropDownInput
-          label='For:'
+          label=''
           name='meal_type'
           value={this.state.meal_type}
           handleInputChange={this.handleInputChange}
@@ -132,7 +130,6 @@ class GeosuggestForm extends React.Component {
       </form>
     )
   }
-
 }
 function loadJS(src) {
   var ref = window.document.getElementsByTagName("script")[0];

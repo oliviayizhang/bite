@@ -23,17 +23,17 @@
               <%= image_tag(current_user.avatar.thumb) %>
             <% end %>
             <!-- <%= link_to 'Invite', new_user_invitation_path, :class => "text-nav" %> -->
-            <%= link_to current_user, :class => "material-icons" do %>
+            <%= link_to current_user, :id => "material-icons-nav" do %>
               <i class="material-icons">account_box</i>
             <% end %>
 
             <%= link_to 'Create a group', "/groups/new", :class => "text-nav" %>
-            <%= link_to "/groups/new", :class => "material-icons" do %>
+            <%= link_to "/groups/new", :id => "material-icons-nav" do %>
               <i class="material-icons">add_circle_outline</i>
             <% end %>
 
             <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, :class => "text-nav" %>
-            <%= link_to destroy_user_session_path, method: :delete, :class => "material-icons" do %>
+            <%= link_to destroy_user_session_path, method: :delete, :id => "material-icons-nav" do %>
               <i class="material-icons">block</i>
             <% end %>
           <% else %>
