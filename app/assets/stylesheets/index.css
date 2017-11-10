@@ -46,12 +46,10 @@ header a {
 }*/
 
 header {
-  /*background-color: #00C3D1;*/
   background-color: #63DFE8;
 }
 
 nav a{
-  /*border: 1px solid red;*/
   text-decoration: none;
   border-radius: 5px;
   padding: 1em 1em;
@@ -65,15 +63,22 @@ nav a{
 .text-nav {
 }
 
+#nav-profile-pic {
+}
+
 #nav-profile-pic img{
   border-radius: 11%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 #nav-bar {
-  padding: 1.2em 1em;
+  padding: 1em;
+  margin: 0!important;
   /*border: 1px solid green;*/
   position: absolute;
-    top: 0;
+    top: 1em;
     right: 0;
   width: 21em;
 }
