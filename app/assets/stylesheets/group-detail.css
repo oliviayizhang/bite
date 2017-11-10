@@ -10,41 +10,27 @@
   list-style-type: none;
 }
 
-.events-list {
-  /*border: 1px solid red;*/
-  margin-left: 30px;
-}
-
-.events-list button {
-  color: black;
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 17px;
-  background: #CCF418;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
-}
-
 #events-owner {
   font-size: 1.2em;
 }
 
-.events-list div {
-  /*border-left: 1px solid grey;*/
-  /*border: 1px solid green;*/
-  /*padding-left: 1em;*/
-  /*margin: 1em;*/
-  /*background-color: white;*/
+.group-show-event-list div {
+  background-color: white;
+  padding: 1em 1em;
+  /*border: 2px solid red;*/
+  margin: 1em;
+  box-shadow: 0px 2px 2px 0px rgba( 0, 0, 0, 0.1 );
 }
 
-.events-list div a {
+.group-show-event-list div a {
   text-decoration: none;
   color: #414547;
   font-size: 1.5em;
 }
 
 select {
-  border: 1px solid red;
-  width: 30%;
+  /*border: 1px solid red;*/
+  width: 28%;
   border: 2px solid transparent;
   box-shadow: 0 0 1px #3d464d;
   padding: .5em 1em;
@@ -52,9 +38,7 @@ select {
           transition: border 0.2s, box-shadow 0.2s;
 }
 
-
 .event-detail {
-  /*border: 1px solid red;*/
   margin: 10em auto;
   width: 60%;
   padding: 1em;
@@ -105,3 +89,86 @@ select {
    border: .25em dashed #efefef;
    border-radius: 1em;
  }
+
+ .group-show-container {
+   /*border: 3px solid blue;*/
+   margin: 10em 10em;
+ }
+
+ .group-show-group-list {
+   /*border: 3px solid green;*/
+   width: 30%;
+   display: inline-block;
+ }
+
+ .group-show-event-list {
+   /*border: 3px solid red;*/
+   width: 50%;
+   display: inline-block;
+   position: absolute;
+   top: 20;
+ }
+
+ .group-show-event-list button {
+   color: black;
+   font-family: 'Ubuntu', sans-serif;
+   font-size: 17px;
+   background: #CCF418;
+   padding: 10px 20px 10px 20px;
+   text-decoration: none;
+ }
+
+ /*.group-show-geo {
+   border: 3px solid red;
+   width: 50%;
+   margin-left: 22em;
+   margin-top: 30em;
+ }*/
+
+ #geo-form-button {
+   border: 2px dashed black;
+   font-family: 'Ubuntu', sans-serif;
+   font-size: 17px;
+   padding: 10px 20px 10px 20px;
+ }
+
+.input-group-field {
+  border: 1px solid grey;
+  width: 20%;
+  margin: 1em 0;
+  padding: 0.5em;
+}
+
+.input-group-button input {
+  color: black;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 17px;
+  background: #FF6663;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.group-show-map-container #map {
+  /*border: 1px solid red;*/
+  margin-left: 0;
+  height: 300px;
+  width: 320px;
+}
+
+@media only screen and (max-width: 840px ) {
+  .group-show-container {
+    margin-left: 0;
+    margin-top: 7em;
+    padding: 0;
+  }
+  .group-show-event-list {
+    width: 75%;
+  }
+  .input-group-field {
+    margin-left: 0.2em;
+    width: 25%;
+  }
+  .input-group-button input {
+    margin-left: 2em;
+  }
+}

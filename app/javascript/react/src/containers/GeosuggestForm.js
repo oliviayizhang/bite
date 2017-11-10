@@ -87,10 +87,11 @@ class GeosuggestForm extends React.Component {
   }
 
   render() {
+    console.log(this.state.time);
     let restaurantDetail
     if (this.state.name) {
       restaurantDetail =
-      <div>
+      <div class="group-show-map-container">
         <p id="geosuggest-address">Address: {this.state.address}</p>
         <div id="map"></div>
       </div>
@@ -126,7 +127,7 @@ class GeosuggestForm extends React.Component {
             handleChangeTimePicker12={this.handleChangeTimePicker12}
           />
         </MuiThemeProvider>
-        <input type='submit' value='post to the group' />
+        <input type='submit' value='post to the group' id="geo-form-button" />
       </form>
     )
   }
