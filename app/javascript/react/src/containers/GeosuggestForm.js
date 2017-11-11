@@ -20,7 +20,6 @@ class GeosuggestForm extends React.Component {
     this.onSuggestSelect = this.onSuggestSelect.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-    // this.getPlaceDetail = this.getPlaceDetail.bind(this)
     this.initMap = this.initMap.bind(this)
     this.handleChangeTimePicker12 = this.handleChangeTimePicker12.bind(this)
   }
@@ -38,7 +37,6 @@ class GeosuggestForm extends React.Component {
       latitude: suggest.location.lat,
       longitude: suggest.location.lng
     })
-    // this.getPlaceDetail(suggest.placeId)
     this.initMap({ lat: this.state.latitude, lng: this.state.longitude })
   }
 
@@ -68,7 +66,11 @@ class GeosuggestForm extends React.Component {
   }
 
   handleChangeTimePicker12 = (event, date) => {
-    this.setState({time: date});
+    let time = new Date(date)
+    let hours = time.getHours()
+    let minutes = time.getMinutes()
+
+    this.setState( { time: `${hours}:${minutes}` } );
   }
 
   handleSubmit(event) {

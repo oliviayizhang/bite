@@ -3,7 +3,7 @@ import TimePicker from 'material-ui/TimePicker';
 
 class TimeInput extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   render() {
@@ -18,6 +18,6 @@ class TimeInput extends React.Component {
       </div>
     )
   }
-
 }
+
 export default TimeInput;
