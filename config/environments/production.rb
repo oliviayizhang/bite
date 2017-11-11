@@ -31,7 +31,7 @@ Rails.application.configure do
   config.assets.compile = false
 
   config.web_socket_server_url = "wss://eetup.herokuapp.com/cable"
-  config.action_cable.allowed_request_origins = ['https://eetup.herokuapp.com', 'http://eetup.herokuapp.com']
+  config.action_cable.allowed_request_origins = ['https://eetup.herokuapp.com/']
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
