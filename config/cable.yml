@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: redis://localhost:6379/1
+  url: redis://redistogo:5bd6d1e3fdc190f43437d145e955ae56@grouper.redistogo.com:9442/
   channel_prefix: bite_production

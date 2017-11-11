@@ -30,6 +30,9 @@ Rails.application.configure do
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
 
+  config.web_socket_server_url = "wss://eetup.herokuapp.com/cable"
+  config.action_cable.allowed_request_origins = ['https://eetup.herokuapp.com', 'http://eetup.herokuapp.com']
+
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
