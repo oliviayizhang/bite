@@ -30,7 +30,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'shoulda'
   gem 'launchy'
-  gem 'factory_girl'
+  gem 'factory_bot'
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
   gem "dotenv-rails"

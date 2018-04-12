@@ -11,10 +11,10 @@ end
 
 # Two Test users
 user_1 = User.create!(
-  first_name: "Alison",
-  last_name: "Butler",
-  username: "AlisonButler",
-  email: "Alison@Butler.com",
+  first_name: "Guest",
+  last_name: "Account",
+  username: "Guestaccount",
+  email: "Guest@Account.com",
   password: 1234567,
   avatar: Faker::Avatar.image
 )

@@ -15,14 +15,15 @@
 .field input{
   height: 2.5em;
   width: 30em;
-  margin-top: 1.4em;
+  margin-top: 1em;
+  margin-bottom: 1em;
   text-indent: 40px;
 }
 
 #log-in-icons {
   display: inline;
   position: absolute;
-  top: 32px;
+  top: 26px;
   left: 130px;
   color: grey;
 }
@@ -30,13 +31,14 @@
 .remember-me-label {
   /*border: 1px solid green;*/
   margin-left: 0;
-  padding-bottom: 1em;
 }
 
 input.remember-me-box {
+  border: 1px solid red;
   display: inline-block;
   width: 2em;
   margin-left: -22em;
+  height: 2em;
 }
 
 .log-in-button {
@@ -72,6 +74,8 @@ input.remember-me-box {
 
 #user_avatar {
   border: 1px solid red;
+  font-family: 'Ubuntu', sans-serif;
+  margin-left: 300px;
 }
 
 .sign-up-back-button {

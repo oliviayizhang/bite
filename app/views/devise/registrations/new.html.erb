@@ -5,27 +5,27 @@
     <%= devise_error_messages! %>
 
     <div class="field">
-      <%= f.label :first_name, "First Name" %><br />
+      <!-- <%= f.label :first_name, "First Name" %><br /> -->
       <%= f.text_field :first_name, autofocus: true, placeholder: "First Name" %>
     </div>
 
     <div class="field">
-      <%= f.label :last_name, "Last Name" %><br />
+      <!-- <%= f.label :last_name, "Last Name" %><br /> -->
       <%= f.text_field :last_name, placeholder: "Last Name" %>
     </div>
 
     <div class="field">
-      <%= f.label :username, "Username" %><br />
+      <!-- <%= f.label :username, "Username" %><br /> -->
       <%= f.text_field :username, placeholder: "Username" %>
     </div>
 
     <div class="field">
-      <%= f.label :email %><br />
+      <!-- <%= f.label :email %><br /> -->
       <%= f.email_field :email, placeholder: "E-mail" %>
     </div>
 
     <div class="field">
-      <%= f.label :password %>
+      <!-- <%= f.label :password %> -->
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
       <% end %><br />
@@ -33,15 +33,15 @@
     </div>
 
     <div class="field">
-      <%= f.label :password_confirmation, "Confirm Password" %><br />
+      <!-- <%= f.label :password_confirmation, "Confirm Password" %><br /> -->
       <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Comfirm your password" %>
     </div>
 
-    <div class="field">
-      <%= f.label :avatar, "Upload a profile picture" %><br />
-      <%= f.file_field :avatar %>
-      <%= f.hidden_field :avatar_cache %>
-    </div>
+    <!-- <div class="field"> -->
+      <!-- <%= f.label :avatar, "Upload a profile picture" %><br /> -->
+      <!-- <%= f.file_field :avatar %> -->
+      <!-- <%= f.hidden_field :avatar_cache %> -->
+    <!-- </div> -->
 
     <div class="actions">
       <%= f.submit "Create account", class: "log-in-button" %>

@@ -7,13 +7,13 @@
     <div class="field">
       <!-- <%= f.label :email %><br /> -->
       <i class="material-icons" id="log-in-icons">email</i>
-      <%= f.email_field :email, autofocus: true, placeholder: "E-mail" %>
+      <%= f.email_field :email, autofocus: true, placeholder: "E-mail", value: "Guest@Account.com" %>
     </div>
 
     <div class="field">
       <!-- <%= f.label :password %><br /> -->
       <i class="material-icons" id="log-in-icons">vpn_key</i>
-      <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
+      <%= f.password_field :password, autocomplete: "off", placeholder: "Password", value: 1234567 %>
     </div>
 
     <% if devise_mapping.rememberable? -%>
