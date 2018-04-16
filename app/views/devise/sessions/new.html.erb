@@ -16,15 +16,15 @@
       <%= f.password_field :password, autocomplete: "off", placeholder: "Password", value: 1234567 %>
     </div>
 
-    <% if devise_mapping.rememberable? -%>
+    <!-- <% if devise_mapping.rememberable? -%>
       <div class="field">
         <%= f.check_box :remember_me, :class => "remember-me-box" %>
         <%= f.label :remember_me, :class => "remember-me-label" %>
       </div>
-    <% end %>
+    <% end %> -->
 
     <div class="actions">
-      <%= f.submit "Log in", class: "log-in-button"  %>
+      <%= f.submit "Log in as Guest", class: "log-in-button"  %>
     </div>
   <% end %>
 
